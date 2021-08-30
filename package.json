@@ -1,0 +1,18 @@
+{
+  "name": "banish_the_bad_guys",
+  "version": "1.0.0",
+  "description": "ban malicious accounts from your chat",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "R4z0r",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^10.0.0",
+    "tmi.js": "^1.8.5"
+  }
+}
