@@ -25,9 +25,11 @@ Banish the BadGuys requires [Node.js](https://nodejs.org/) v10+ to run.
 Install the dependencies and start the bot. (Ironic, isn't it? a bot that bans other bots)
 
 ```sh
+cd Banish-the-BadGuys-master
 npm i
 npm start
 ```
+then, in your twitch channel chat, type the command !@#$BANALL and watch the magic work.
 
 ## License
 
