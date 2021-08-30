@@ -1,10 +1,33 @@
-require('dotenv').config("config.env");
 const tmi = require('tmi.js');
 const fs = require('fs');
 const chalk = require('chalk');
 const { Console } = require('console');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 let badUsers = [];
+
+//Create the .env file if it does not exist
+if(!fs.existsSync('.env')){
+    let string = 'TOKKEN_TWITCH= \n'
+    string += 'USERNAME= \n'    
+    string += 'CHANNEL_NAME= '     
+    fs.writeFileSync('.env', string);
+    console.warn(chalk.redBright(`==> Check the .env file`));
+    process.exit(1);
+}    
+
+require('dotenv').config();
+
+//Check the parameters of the .env file
+if(process.env.USERNAME.trim() == ""){
+    console.error(chalk.redBright(`==> Check the .env file: USERNAME is missing`));
+    process.exit(1);
+}else if(process.env.TOKKEN_TWITCH.trim() == ""){
+    console.error(chalk.redBright(`==> Check the .env file: TOKKEN_TWITCH is missing`));
+    process.exit(1);
+}else if(process.env.CHANNEL_NAME.trim() == ""){
+    console.error(chalk.redBright(`==> Check the .env file: CHANNEL_NAME is missing`));
+    process.exit(1);
+}
 
 //Preparing the client
 const client = new tmi.Client({
